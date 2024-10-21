@@ -8,7 +8,7 @@ namespace LinterTest {
     POS = 1, NEG = -1
   }
 
-  const info:INFO = { text: "G`udetmvhsgBncd1 ", key: KEY.POS };
+  const info:INFO = { text: "G`udetmvhsgBncd1 ", key: KEY.POS };
   console.log(DECRYPT(info.text, info.key));
 
   function DECRYPT(_text: string, _key: number):string {
