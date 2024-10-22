@@ -8,6 +8,7 @@ interface Cannon{
 }
 
 interface Ball{
+    shotByCannon:number,
     startingAngle:number,
     gunpowder:number,
     oldPosX:number,
@@ -29,4 +30,9 @@ function handleLoad(_event:Event):void{
     //set up canvas
     const canvas:HTMLCanvasElement=document.getElementsByTagName("canvas")[0];
     const ctx:CanvasRenderingContext2D=canvas.getContext("2d")!;
+
+    //add event listeners
+    document.addEventListener("keydown",keyPressed)
 }
+
+
