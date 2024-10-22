@@ -117,23 +117,8 @@ for(let i:number=0;i<=(document.getElementsByTagName("input")).length;i++){
                 console.log("end my suffering why doesnt the id match");
                 break;
         }
-        console.log("changed slider with id"+slider.id);
+        console.log("changed slider with id"+slider.id+ "to value"+slider.value);
     }
    
 }
 
-mouseAngle.onchange=function():void{
-    cannonMouse.angle=Number(mouseAngle.value)
-    console.log("adjusted slider to value"+mouseAngle.value)
-}
-
-mousePower.onchange=function():void{
-    cannonMouse.power=Number(mousePower.value)
-}
-
-keyboardAngle.onchange=function():void{
-    cannonKeyboard.angle=Number(keyboardAngle.value)
-}
-keyboardPower.onchange=function():void{
-    cannonKeyboard.power=Number(keyboardPower.value)
-}
