@@ -91,7 +91,7 @@ function processKeyboardInput(_event:KeyboardEvent):void{
 
 
 function shoot(_event:MouseEvent):void{
-
+    console.log("shooooot");
 }
 
 function displayHelp(_event:MouseEvent):void{
