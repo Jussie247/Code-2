@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ballerburg</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="ballerburg.js" defer></script>
 </head>
 <body>
         <header>
@@ -16,13 +17,27 @@
             <div class="player player1">
                 <h2>Player 1</h2>
                 <label for="angle1">Angle</label>
-                <input type="range" id="angle1" name="angle1" min="0" max="100" onchange="handleSlider">
+                <input type="range" id="angle1" name="angle1" min="0" max="100" oninput="handleSlider">
 
                 <label for="power1">Power</label>
-                <input type="range" id="power1" name="power1" min="0" max="100" onchange="handleSlider">
+                <input type="range" id="power1" name="power1" min="0" max="100" oninput	="handleSlider">
 
                 <p>Keyboard</p>
-                <button id="shoot1" onclick="handleShoot">Shoot</button>
+                <button id="shoot1">Shoot</button>
+
+         </div>
+
+            <canvas id="gameCanvas"></canvas>
+            <div class="player player2">
+                <h2>Player2</h2>
+                <label for="angle2">Angle</label>
+                <input type="range" id="angle2" name="angle2" min="0" max="100" oninput="handleSlider">
+
+                <label for="power2">Power</label>
+                <input type="range" id="power2" name="power2" min="0" max="100" oninput="handleSlider">
+
+                <p>Mouse</p>
+                <button id="shoot2">Shoot</button>
 
             </div>
         </div>        
