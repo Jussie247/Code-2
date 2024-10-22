@@ -17,6 +17,12 @@ interface Ball{
     newPosY:number
 }
 
+
+interface Point  {
+    x: number;
+    y: number;
+  };
+
 let balls:Ball[]=[];
 
 let pressedKey:string="";
@@ -34,6 +40,10 @@ let cannonKeyboard:Cannon={
     ballInAir:false
 };
 
+//set up canvas
+const canvas:HTMLCanvasElement=document.getElementsByTagName("canvas")[0];
+const ctx:CanvasRenderingContext2D=canvas.getContext("2d")!;
+
 const keyboardAngle:HTMLInputElement=<HTMLInputElement>document.getElementById("angle1");
 const keyboardPower:HTMLInputElement=<HTMLInputElement>document.getElementById("power1");
 const mouseAngle:HTMLInputElement=<HTMLInputElement>document.getElementById("angle2");
@@ -48,9 +58,7 @@ const mousePower:HTMLInputElement=<HTMLInputElement>document.getElementById("pow
 window.addEventListener("load",handleLoad);
 
 function handleLoad(_event:Event):void{
-    //set up canvas
-    const canvas:HTMLCanvasElement=document.getElementsByTagName("canvas")[0];
-    const ctx:CanvasRenderingContext2D=canvas.getContext("2d")!;
+
 
     //add event listeners
     document.addEventListener("keydown",processKeyboardInput);
@@ -72,6 +80,7 @@ function handleLoad(_event:Event):void{
                 break;
         }
     }
+   
 
 }
 
@@ -122,27 +131,14 @@ for(let i:number=0;i<=(document.getElementsByTagName("input")).length;i++){
    
 }
 
-
-
-
-
-
-// Simple types for our points
-interface Point  {
-    x: number;
-    y: number;
-  };
+function newMap():void{
+     //
+    // Make sure canvas size matches CSS size
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
   
-  // Get canvas and context
-  const canvas = document.getElementById('gameCanvas') as HTMLCanvasElement;
-  const ctx = canvas.getContext('2d');
-  
-  // Make sure canvas size matches CSS size
-  canvas.width = canvas.clientWidth;
-  canvas.height = canvas.clientHeight;
-  
-  // Create fixed points for the terrain
-  const createTerrainPoints = (): Point[] => {
+    // Create fixed points for the terrain
+    const createTerrainPoints = (): Point[] => {
     const points: Point[] = [];
     
     // Start point (left side)
@@ -184,7 +180,7 @@ interface Point  {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
     // Get terrain points
-    const points = createTerrainPoints();
+    const points:Point[] = createTerrainPoints();
     
     // Start drawing
     ctx.beginPath();
@@ -193,8 +189,8 @@ interface Point  {
     ctx.moveTo(0, canvas.height);
     
     // Draw lines through all points
-    points.forEach((point) => {
-      ctx.lineTo(point.x, point.y);
+    points.forEach((_point) => {
+      ctx.lineTo(_point.x, _point.y);
     });
     
     // Complete the shape
@@ -207,9 +203,6 @@ interface Point  {
   
   // Draw initial terrain
   drawTerrain();
+}
   
-  // Redraw when restart button is clicked
-  const restartButton = document.getElementById('restart');
-  if (restartButton) {
-    restartButton.addEventListener('click', drawTerrain);
-  }
+  
