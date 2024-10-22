@@ -26,56 +26,63 @@ window.addEventListener("load", handleLoad);
 function handleLoad(_event) {
     //add event listeners
     document.addEventListener("keydown", processKeyboardInput);
-    for (let i = 0; i <= (document.getElementsByTagName("button")).length; i++) {
-        const button = document.getElementsByTagName("button")[i];
-        switch (button.innerHTML) {
-            case "Shoot":
-                button.addEventListener("click", shoot);
-                break;
-            case "How to Play":
-                button.addEventListener("click", displayHelp);
-                break;
-            case "Restart":
-                button.addEventListener("click", restartGame);
-                break;
-            default:
-                console.log("extra button????????");
-                break;
-        }
+    /* for(let i:number=0;i<=(document.getElementsByTagName("button")).length;i++){
+        const button:HTMLButtonElement=document.getElementsByTagName("button")[i];
+       /*  button.onclick=function():void{
+
+        } */
+    /* switch(button.id){
+        case "howToPlay":
+            button.addEventListener("click",shoot);
+            break;
+        case "shoot1":
+            button.addEventListener("click",shoot);
+            break;
+        case "shoot2":
+            button.addEventListener("click",shoot)
+        case "restart":
+            button.addEventListener("click",restartGame);
+            break;
+        default:
+            console.log("extra button????????");
+            break; */
+    //}
+    //} */
+    for (let i = 0; i <= (document.getElementsByTagName("input")).length; i++) {
+        const slider = document.getElementsByTagName("input")[i];
+        slider.onchange = function () {
+            const val = Number(slider.value);
+            switch (slider.id) {
+                case "angle1":
+                    cannonKeyboard.angle = val;
+                    break;
+                case "power1":
+                    cannonKeyboard.power = val;
+                    break;
+                case "angle2":
+                    cannonMouse.angle = val;
+                    break;
+                case "power2":
+                    cannonMouse.power = val;
+                    break;
+                default:
+                    console.log("end my suffering why doesnt the id match");
+                    break;
+            }
+            console.log("changed slider with id" + slider.id + "to value" + slider.value);
+        };
     }
 }
 function processKeyboardInput(_event) {
     pressedKey = _event.key;
+    console.log("pressed " + pressedKey);
 }
-function shoot(_event) {
+function shoot(_index) {
+    console.log("shooooot");
 }
 function displayHelp(_event) {
 }
 function restartGame(_event) {
-}
-for (let i = 0; i <= (document.getElementsByTagName("input")).length; i++) {
-    const slider = document.getElementsByTagName("input")[i];
-    slider.onchange = function () {
-        const val = Number(slider.value);
-        switch (slider.id) {
-            case "angle1":
-                cannonKeyboard.angle = val;
-                break;
-            case "power1":
-                cannonKeyboard.power = val;
-                break;
-            case "angle2":
-                cannonMouse.angle = val;
-                break;
-            case "power2":
-                cannonMouse.power = val;
-                break;
-            default:
-                console.log("end my suffering why doesnt the id match");
-                break;
-        }
-        console.log("changed slider with id" + slider.id + "to value" + slider.value);
-    };
 }
 function newMap() {
     //
