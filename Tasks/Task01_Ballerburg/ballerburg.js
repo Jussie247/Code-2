@@ -78,6 +78,7 @@ for (let i = 0; i <= (document.getElementsByTagName("input")).length; i++) {
 }
 mouseAngle.onchange = function () {
     cannonMouse.angle = Number(mouseAngle.value);
+    console.log("adjusted slider to value" + mouseAngle.value);
 };
 mousePower.onchange = function () {
     cannonMouse.power = Number(mousePower.value);

@@ -124,6 +124,7 @@ for(let i:number=0;i<=(document.getElementsByTagName("input")).length;i++){
 
 mouseAngle.onchange=function():void{
     cannonMouse.angle=Number(mouseAngle.value)
+    console.log("adjusted slider to value"+mouseAngle.value)
 }
 
 mousePower.onchange=function():void{
