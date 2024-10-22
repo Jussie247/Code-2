@@ -40,3 +40,29 @@ header button {
     margin: 20px 0;
 }
 
+.player {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#gameCanvas {
+    border: 2px solid #000;
+    width: 60%;
+    height: 400px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+#restart {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 18px;
+}
