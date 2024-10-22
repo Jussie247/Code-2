@@ -17,6 +17,8 @@ interface Ball{
     newPosY:number
 }
 
+let balls:Ball[]=[];
+
 let pressedKey:string="";
 
 let cannonMouse:Cannon={
@@ -32,9 +34,13 @@ let cannonKeyboard:Cannon={
     ballInAir:false
 };
 
+const keyboardAngle:HTMLInputElement=<HTMLInputElement>document.getElementById("angle1");
+const keyboardPower:HTMLInputElement=<HTMLInputElement>document.getElementById("power1");
+const mouseAngle:HTMLInputElement=<HTMLInputElement>document.getElementById("angle2");
+const mousePower:HTMLInputElement=<HTMLInputElement>document.getElementById("power2");
 
 
-const keyboardAngle:HTMLElement=document.getElementById("angle1")!;
+
 
 
 
@@ -44,13 +50,13 @@ window.addEventListener("load",handleLoad);
 function handleLoad(_event:Event):void{
     //set up canvas
     const canvas:HTMLCanvasElement=document.getElementsByTagName("canvas")[0];
-    let ctx:CanvasRenderingContext2D=canvas.getContext("2d")!;
+    const ctx:CanvasRenderingContext2D=canvas.getContext("2d")!;
 
     //add event listeners
     document.addEventListener("keydown",processKeyboardInput);
    
     for(let i:number=0;i<=(document.getElementsByTagName("button")).length;i++){
-        const button:HTMLElement=document.getElementsByTagName("button")[i];
+        const button:HTMLButtonElement=document.getElementsByTagName("button")[i];
         switch(button.innerHTML){
             case "Shoot":
                 button.addEventListener("click",shoot);
@@ -73,11 +79,7 @@ function processKeyboardInput(_event:KeyboardEvent):void{
     pressedKey=_event.key;
 }
 
-function handleSlider(slider:HTMLInputElement):void{
-    
-    
 
-}
 
 function shoot(_event:MouseEvent):void{
 
@@ -97,7 +99,7 @@ function restartGame(_event:MouseEvent):void{
 for(let i:number=0;i<=(document.getElementsByTagName("input")).length;i++){
     const slider:HTMLInputElement=document.getElementsByTagName("input")[i];
     slider.onchange=function():void{
-        let val:number=Number(slider.value)
+        const val:number=Number(slider.value)
         switch(slider.id){
             case "angle1":
                 cannonKeyboard.angle=val;
@@ -118,4 +120,19 @@ for(let i:number=0;i<=(document.getElementsByTagName("input")).length;i++){
         console.log("changed slider with id"+slider.id);
     }
    
+}
+
+mouseAngle.onchange=function():void{
+    cannonMouse.angle=Number(mouseAngle.value)
+}
+
+mousePower.onchange=function():void{
+    cannonMouse.power=Number(mousePower.value)
+}
+
+keyboardAngle.onchange=function():void{
+    cannonKeyboard.angle=Number(keyboardAngle.value)
+}
+keyboardPower.onchange=function():void{
+    cannonKeyboard.power=Number(keyboardPower.value)
 }

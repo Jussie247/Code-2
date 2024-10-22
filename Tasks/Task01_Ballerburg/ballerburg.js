@@ -1,5 +1,6 @@
 "use strict";
 //interfaces&variables
+let balls = [];
 let pressedKey = "";
 let cannonMouse = {
     index: 1,
@@ -14,11 +15,14 @@ let cannonKeyboard = {
     ballInAir: false
 };
 const keyboardAngle = document.getElementById("angle1");
+const keyboardPower = document.getElementById("power1");
+const mouseAngle = document.getElementById("angle2");
+const mousePower = document.getElementById("power2");
 window.addEventListener("load", handleLoad);
 function handleLoad(_event) {
     //set up canvas
     const canvas = document.getElementsByTagName("canvas")[0];
-    let ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d");
     //add event listeners
     document.addEventListener("keydown", processKeyboardInput);
     for (let i = 0; i <= (document.getElementsByTagName("button")).length; i++) {
@@ -42,8 +46,6 @@ function handleLoad(_event) {
 function processKeyboardInput(_event) {
     pressedKey = _event.key;
 }
-function handleSlider(slider) {
-}
 function shoot(_event) {
 }
 function displayHelp(_event) {
@@ -53,7 +55,7 @@ function restartGame(_event) {
 for (let i = 0; i <= (document.getElementsByTagName("input")).length; i++) {
     const slider = document.getElementsByTagName("input")[i];
     slider.onchange = function () {
-        let val = Number(slider.value);
+        const val = Number(slider.value);
         switch (slider.id) {
             case "angle1":
                 cannonKeyboard.angle = val;
@@ -74,3 +76,15 @@ for (let i = 0; i <= (document.getElementsByTagName("input")).length; i++) {
         console.log("changed slider with id" + slider.id);
     };
 }
+mouseAngle.onchange = function () {
+    cannonMouse.angle = Number(mouseAngle.value);
+};
+mousePower.onchange = function () {
+    cannonMouse.power = Number(mousePower.value);
+};
+keyboardAngle.onchange = function () {
+    cannonKeyboard.angle = Number(keyboardAngle.value);
+};
+keyboardPower.onchange = function () {
+    cannonKeyboard.power = Number(keyboardPower.value);
+};
