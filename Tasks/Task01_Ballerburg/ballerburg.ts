@@ -32,7 +32,10 @@ function handleLoad(_event:Event):void{
     const ctx:CanvasRenderingContext2D=canvas.getContext("2d")!;
 
     //add event listeners
-    document.addEventListener("keydown",keyPressed)
+    document.addEventListener("keydown",processKeyboardInput);
+    
 }
 
-
+function processKeyboardInput(_event:KeyboardEvent):void{
+    pressedKey=_event.key;
+}
