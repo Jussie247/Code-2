@@ -222,6 +222,7 @@ interface Cannon {
   }
   
   function restartGame(_event: MouseEvent): void {
+    newMap();
     console.log("Restart game");
   }
   
