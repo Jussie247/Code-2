@@ -93,7 +93,7 @@ interface Cannon {
     };
   
     // Draw the terrain
-    const drawTerrain = (): void => {
+    function drawTerrain(): void {
       if (!ctx) return;
   
       // Clear the canvas
