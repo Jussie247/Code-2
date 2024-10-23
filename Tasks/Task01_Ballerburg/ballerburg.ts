@@ -91,7 +91,7 @@ function handleLoad(_event:Event):void{
         }
        
     }
-    newMap();
+    newMap(); //not working yet for some unknown reason(s)
    
 
 }
@@ -100,10 +100,11 @@ function processKeyboardInput(_event:KeyboardEvent):void{
     pressedKey=_event.key;
     const angleslider:HTMLInputElement=<HTMLInputElement>document.getElementById("angle1");
     const powerslider:HTMLInputElement=<HTMLInputElement>document.getElementById("power1");
+    //switch between both sliders with w and s
     if (pressedKey=="w"||pressedKey=="s"){
         keyboardFocusAngle=!keyboardFocusAngle;
         if (keyboardFocusAngle){
-            angleslider.style.border ="4px solid red";
+            angleslider.style.border ="4px solid red"; //highlights not working yet
             powerslider.style.border="none";
         }
         else{
@@ -111,6 +112,7 @@ function processKeyboardInput(_event:KeyboardEvent):void{
             powerslider.style.border="4px solid red";
         }
     }
+    //a down d up
     else if (pressedKey=="a"){
         if (keyboardFocusAngle){
             angleslider.stepDown();
@@ -131,6 +133,7 @@ function processKeyboardInput(_event:KeyboardEvent):void{
             cannonKeyboard.power=Number(powerslider.value);
         }
     }
+    //enter to shoot
     else if (pressedKey=="Enter"){
         const shootBtn:HTMLButtonElement=<HTMLButtonElement>document.getElementById("shoot1");
         shootBtn.disabled=false;
@@ -152,6 +155,7 @@ function shoot(_index:number):void{
 }
 
 function displayHelp(_event:MouseEvent):void{
+    alert("Insert Help text here")
     console.log("display help")
 }
 
@@ -163,7 +167,7 @@ function restartGame(_event:MouseEvent):void{
 
 
 
-
+//not working yet except it did work at some point 
 function newMap():void{
      //
     // Make sure canvas size matches CSS size

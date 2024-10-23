@@ -102,6 +102,7 @@ function shoot(_index) {
     }
 }
 function displayHelp(_event) {
+    alert("Insert Help text here");
     console.log("display help");
 }
 function restartGame(_event) {
