@@ -63,28 +63,7 @@ function handleLoad(_event:Event):void{
     //add event listeners
     document.addEventListener("keydown",processKeyboardInput);
    
-    /* for(let i:number=0;i<=(document.getElementsByTagName("button")).length;i++){
-        const button:HTMLButtonElement=document.getElementsByTagName("button")[i];
-       /*  button.onclick=function():void{
-
-        } */
-        /* switch(button.id){
-            case "howToPlay":
-                button.addEventListener("click",shoot);
-                break;
-            case "shoot1":
-                button.addEventListener("click",shoot);
-                break;
-            case "shoot2":
-                button.addEventListener("click",shoot)
-            case "restart":
-                button.addEventListener("click",restartGame);
-                break;
-            default:
-                console.log("extra button????????");
-                break; */
-        //}
-    //} */
+    
 
     for(let i:number=0;i<=(document.getElementsByTagName("input")).length;i++){
         const slider:HTMLInputElement=document.getElementsByTagName("input")[i];
@@ -123,15 +102,20 @@ function processKeyboardInput(_event:KeyboardEvent):void{
 
 
 function shoot(_index:number):void{
-    console.log("shooooot");
+    if (_index===0){
+        console.log("shoot keyboard")
+    }
+    else{
+        console.log("shoot mouse")
+    }
 }
 
 function displayHelp(_event:MouseEvent):void{
-
+    console.log("display help")
 }
 
 function restartGame(_event:MouseEvent):void{
-
+    console.log("restart game")
 }
 
 
