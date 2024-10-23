@@ -15,11 +15,17 @@ let cannonKeyboard = {
     power: 50,
     ballInAir: false
 };
+let keyboardFocusAngle = true;
 //set up canvas
 const canvas = document.getElementsByTagName("canvas")[0];
 const ctx = canvas.getContext("2d");
 window.addEventListener("load", handleLoad);
 function handleLoad(_event) {
+    //disable keyboard sliders
+    let disabledSlider = document.getElementById("angle1");
+    disabledSlider.disabled = true;
+    disabledSlider = document.getElementById("power1");
+    disabledSlider.disabled = true;
     //add event listeners
     document.addEventListener("keydown", processKeyboardInput);
     for (let i = 0; i <= (document.getElementsByTagName("input")).length; i++) {
@@ -50,6 +56,34 @@ function handleLoad(_event) {
 }
 function processKeyboardInput(_event) {
     pressedKey = _event.key;
+    let slider = document.getElementById("angle1");
+    if (pressedKey == "w" || pressedKey == "s") {
+        keyboardFocusAngle = !keyboardFocusAngle;
+    }
+    else if (pressedKey == "a") {
+        if (keyboardFocusAngle) {
+            slider = document.getElementById("angle1");
+            cannonKeyboard.angle = Number(slider.value);
+        }
+        else {
+            slider = document.getElementById("power1");
+            cannonKeyboard.power = Number(slider.value);
+        }
+        slider.stepDown();
+        console.log("changed slider with id " + slider.id + " to value " + slider.value);
+    }
+    else if (pressedKey == "d") {
+        if (keyboardFocusAngle) {
+            slider = document.getElementById("angle1");
+            cannonKeyboard.angle = Number(slider.value);
+        }
+        else {
+            slider = document.getElementById("power1");
+            cannonKeyboard.power = Number(slider.value);
+        }
+        slider.stepUp();
+        console.log("changed slider with id " + slider.id + " to value " + slider.value);
+    }
     console.log("pressed " + pressedKey);
 }
 function shoot(_index) {

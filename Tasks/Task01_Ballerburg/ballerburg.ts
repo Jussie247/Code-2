@@ -19,8 +19,8 @@ interface Ball{
 
 
 interface Point  {
-    x: number;
-    y: number;
+    x: number,
+    y: number,
   };
 
 let balls:Ball[]=[];
@@ -40,6 +40,10 @@ let cannonKeyboard:Cannon={
     ballInAir:false
 };
 
+let keyboardFocusAngle:boolean=true;
+
+
+
 //set up canvas
 const canvas:HTMLCanvasElement=document.getElementsByTagName("canvas")[0];
 const ctx:CanvasRenderingContext2D=canvas.getContext("2d")!;
@@ -54,10 +58,16 @@ window.addEventListener("load",handleLoad);
 
 function handleLoad(_event:Event):void{
 
+    //disable keyboard sliders
+    let disabledSlider:HTMLInputElement=<HTMLInputElement>document.getElementById("angle1");
+    disabledSlider.disabled=true;
+    disabledSlider=<HTMLInputElement>document.getElementById("power1");
+    disabledSlider.disabled=true;
 
     //add event listeners
     document.addEventListener("keydown",processKeyboardInput);
    
+    
     
 
     for(let i:number=0;i<=(document.getElementsByTagName("input")).length;i++){
@@ -92,6 +102,34 @@ function handleLoad(_event:Event):void{
 
 function processKeyboardInput(_event:KeyboardEvent):void{
     pressedKey=_event.key;
+    let slider:HTMLInputElement=<HTMLInputElement>document.getElementById("angle1")
+    if (pressedKey=="w"||pressedKey=="s"){
+        keyboardFocusAngle=!keyboardFocusAngle;
+    }
+    else if (pressedKey=="a"){
+        if (keyboardFocusAngle){
+            slider=<HTMLInputElement>document.getElementById("angle1");
+            cannonKeyboard.angle=Number(slider.value);
+        }
+        else{
+            slider=<HTMLInputElement>document.getElementById("power1");
+            cannonKeyboard.power=Number(slider.value);
+        }
+        slider.stepDown();
+        console.log("changed slider with id "+slider.id+ " to value "+slider.value);
+    }
+    else if (pressedKey=="d"){
+        if (keyboardFocusAngle){
+            slider=<HTMLInputElement>document.getElementById("angle1");
+            cannonKeyboard.angle=Number(slider.value);
+        }
+        else{
+            slider=<HTMLInputElement>document.getElementById("power1");
+            cannonKeyboard.power=Number(slider.value);
+        }
+        slider.stepUp();
+        console.log("changed slider with id "+slider.id+ " to value "+slider.value);
+    }
     console.log("pressed "+pressedKey)
 }
 
