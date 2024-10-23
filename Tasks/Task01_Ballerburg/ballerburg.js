@@ -159,3 +159,4 @@ function newMap() {
     drawTerrain();
     //cannons+elevations
 }
+//# sourceMappingURL=ballerburg.js.map
