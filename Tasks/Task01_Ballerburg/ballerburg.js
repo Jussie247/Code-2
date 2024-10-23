@@ -167,7 +167,7 @@ function shoot(_index) {
     }
 }
 function displayHelp(_event) {
-    alert("Insert Help text here");
+    alert("Player 1 Use WASD to adjust the angle and power and press ENTER to shoot");
     console.log("Display help");
 }
 function restartGame(_event) {
