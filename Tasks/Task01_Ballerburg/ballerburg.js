@@ -21,11 +21,13 @@ const canvas = document.getElementsByTagName("canvas")[0];
 const ctx = canvas.getContext("2d");
 window.addEventListener("load", handleLoad);
 function handleLoad(_event) {
-    //disable keyboard sliders
+    //disable keyboard sliders & button
     let disabledSlider = document.getElementById("angle1");
     disabledSlider.disabled = true;
     disabledSlider = document.getElementById("power1");
     disabledSlider.disabled = true;
+    const disabledButton = document.getElementById("shoot1");
+    disabledButton.disabled = true;
     //add event listeners
     document.addEventListener("keydown", processKeyboardInput);
     for (let i = 0; i <= (document.getElementsByTagName("input")).length; i++) {
@@ -82,6 +84,12 @@ function processKeyboardInput(_event) {
             powerslider.stepUp();
             cannonKeyboard.power = Number(powerslider.value);
         }
+    }
+    else if (pressedKey == "Enter") {
+        const shootBtn = document.getElementById("shoot1");
+        shootBtn.disabled = false;
+        shootBtn.click();
+        shootBtn.disabled = true;
     }
     console.log("pressed " + pressedKey);
 }

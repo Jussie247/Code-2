@@ -58,11 +58,13 @@ window.addEventListener("load",handleLoad);
 
 function handleLoad(_event:Event):void{
 
-    //disable keyboard sliders
+    //disable keyboard sliders & button
     let disabledSlider:HTMLInputElement=<HTMLInputElement>document.getElementById("angle1");
     disabledSlider.disabled=true;
     disabledSlider=<HTMLInputElement>document.getElementById("power1");
     disabledSlider.disabled=true;
+    const disabledButton:HTMLButtonElement=<HTMLButtonElement>document.getElementById("shoot1");
+    disabledButton.disabled=true;
 
     //add event listeners
     document.addEventListener("keydown",processKeyboardInput);
@@ -128,6 +130,12 @@ function processKeyboardInput(_event:KeyboardEvent):void{
             powerslider.stepUp();
             cannonKeyboard.power=Number(powerslider.value);
         }
+    }
+    else if (pressedKey=="Enter"){
+        const shootBtn:HTMLButtonElement=<HTMLButtonElement>document.getElementById("shoot1");
+        shootBtn.disabled=false;
+        shootBtn.click();
+        shootBtn.disabled=true;
     }
     console.log("pressed "+pressedKey)
 }
