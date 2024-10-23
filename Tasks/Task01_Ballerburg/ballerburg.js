@@ -18,10 +18,6 @@ let cannonKeyboard = {
 //set up canvas
 const canvas = document.getElementsByTagName("canvas")[0];
 const ctx = canvas.getContext("2d");
-const keyboardAngle = document.getElementById("angle1");
-const keyboardPower = document.getElementById("power1");
-const mouseAngle = document.getElementById("angle2");
-const mousePower = document.getElementById("power2");
 window.addEventListener("load", handleLoad);
 function handleLoad(_event) {
     //add event listeners
@@ -47,9 +43,10 @@ function handleLoad(_event) {
                     console.log("end my suffering why doesnt the id match");
                     break;
             }
-            console.log("changed slider with id" + slider.id + "to value" + slider.value);
+            console.log("changed slider with id " + slider.id + " to value " + slider.value);
         };
     }
+    newMap();
 }
 function processKeyboardInput(_event) {
     pressedKey = _event.key;
@@ -126,4 +123,5 @@ function newMap() {
     };
     // Draw initial terrain
     drawTerrain();
+    //cannons+elevations
 }

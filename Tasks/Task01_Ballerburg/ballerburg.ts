@@ -44,11 +44,6 @@ let cannonKeyboard:Cannon={
 const canvas:HTMLCanvasElement=document.getElementsByTagName("canvas")[0];
 const ctx:CanvasRenderingContext2D=canvas.getContext("2d")!;
 
-const keyboardAngle:HTMLInputElement=<HTMLInputElement>document.getElementById("angle1");
-const keyboardPower:HTMLInputElement=<HTMLInputElement>document.getElementById("power1");
-const mouseAngle:HTMLInputElement=<HTMLInputElement>document.getElementById("angle2");
-const mousePower:HTMLInputElement=<HTMLInputElement>document.getElementById("power2");
-
 
 
 
@@ -86,10 +81,11 @@ function handleLoad(_event:Event):void{
                     console.log("end my suffering why doesnt the id match");
                     break;
             }
-            console.log("changed slider with id"+slider.id+ "to value"+slider.value);
+            console.log("changed slider with id "+slider.id+ " to value "+slider.value);
         }
        
     }
+    newMap();
    
 
 }
@@ -195,6 +191,8 @@ function newMap():void{
   
   // Draw initial terrain
   drawTerrain();
+
+  //cannons+elevations
 }
   
   
