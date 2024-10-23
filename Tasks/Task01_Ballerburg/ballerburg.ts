@@ -75,12 +75,6 @@ function handleLoad(_event:Event):void{
         slider.onchange=function():void{
             const val:number=Number(slider.value)
             switch(slider.id){
-                case "angle1":
-                    cannonKeyboard.angle=val;
-                    break;
-                case "power1":
-                    cannonKeyboard.power=val;
-                    break;
                 case "angle2":
                     cannonMouse.angle=val;
                     break;
@@ -88,7 +82,7 @@ function handleLoad(_event:Event):void{
                     cannonMouse.power=val;
                     break;
                 default:
-                    console.log("end my suffering why doesnt the id match");
+                    console.log("i dont think this should be happening");
                     break;
             }
             console.log("changed slider with id "+slider.id+ " to value "+slider.value);
@@ -102,33 +96,38 @@ function handleLoad(_event:Event):void{
 
 function processKeyboardInput(_event:KeyboardEvent):void{
     pressedKey=_event.key;
-    let slider:HTMLInputElement=<HTMLInputElement>document.getElementById("angle1")
+    const angleslider:HTMLInputElement=<HTMLInputElement>document.getElementById("angle1");
+    const powerslider:HTMLInputElement=<HTMLInputElement>document.getElementById("power1");
     if (pressedKey=="w"||pressedKey=="s"){
         keyboardFocusAngle=!keyboardFocusAngle;
+        if (keyboardFocusAngle){
+            angleslider.style.border ="4px solid red";
+            powerslider.style.border="none";
+        }
+        else{
+            angleslider.style.border="none";
+            powerslider.style.border="4px solid red";
+        }
     }
     else if (pressedKey=="a"){
         if (keyboardFocusAngle){
-            slider=<HTMLInputElement>document.getElementById("angle1");
-            cannonKeyboard.angle=Number(slider.value);
+            angleslider.stepDown();
+            cannonKeyboard.angle=Number(angleslider.value);
         }
         else{
-            slider=<HTMLInputElement>document.getElementById("power1");
-            cannonKeyboard.power=Number(slider.value);
+            powerslider.stepDown();
+            cannonKeyboard.power=Number(powerslider.value);
         }
-        slider.stepDown();
-        console.log("changed slider with id "+slider.id+ " to value "+slider.value);
     }
     else if (pressedKey=="d"){
         if (keyboardFocusAngle){
-            slider=<HTMLInputElement>document.getElementById("angle1");
-            cannonKeyboard.angle=Number(slider.value);
+            angleslider.stepUp();
+            cannonKeyboard.angle=Number(angleslider.value);
         }
         else{
-            slider=<HTMLInputElement>document.getElementById("power1");
-            cannonKeyboard.power=Number(slider.value);
+            powerslider.stepUp();
+            cannonKeyboard.power=Number(powerslider.value);
         }
-        slider.stepUp();
-        console.log("changed slider with id "+slider.id+ " to value "+slider.value);
     }
     console.log("pressed "+pressedKey)
 }
