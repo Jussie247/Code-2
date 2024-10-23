@@ -171,6 +171,7 @@ function displayHelp(_event) {
     console.log("Display help");
 }
 function restartGame(_event) {
+    newMap();
     console.log("Restart game");
 }
 //# sourceMappingURL=ballerburg.js.map
