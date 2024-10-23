@@ -140,7 +140,7 @@ interface Cannon {
     document.addEventListener("keydown", processKeyboardInput);
   
     // Initialize sliders to control cannon parameters
-    const sliders = document.getElementsByTagName("input");
+    const sliders:HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
     for (let i = 0; i < sliders.length; i++) {
       const slider: HTMLInputElement = sliders[i];
       slider.onchange = function (): void {
