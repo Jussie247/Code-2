@@ -48,16 +48,17 @@ function handleLoad(_event) {
             console.log("changed slider with id " + slider.id + " to value " + slider.value);
         };
     }
-    newMap();
+    newMap(); //not working yet for some unknown reason(s)
 }
 function processKeyboardInput(_event) {
     pressedKey = _event.key;
     const angleslider = document.getElementById("angle1");
     const powerslider = document.getElementById("power1");
+    //switch between both sliders with w and s
     if (pressedKey == "w" || pressedKey == "s") {
         keyboardFocusAngle = !keyboardFocusAngle;
         if (keyboardFocusAngle) {
-            angleslider.style.border = "4px solid red";
+            angleslider.style.border = "4px solid red"; //highlights not working yet
             powerslider.style.border = "none";
         }
         else {
@@ -65,6 +66,7 @@ function processKeyboardInput(_event) {
             powerslider.style.border = "4px solid red";
         }
     }
+    //a down d up
     else if (pressedKey == "a") {
         if (keyboardFocusAngle) {
             angleslider.stepDown();
@@ -85,6 +87,7 @@ function processKeyboardInput(_event) {
             cannonKeyboard.power = Number(powerslider.value);
         }
     }
+    //enter to shoot
     else if (pressedKey == "Enter") {
         const shootBtn = document.getElementById("shoot1");
         shootBtn.disabled = false;
@@ -108,6 +111,7 @@ function displayHelp(_event) {
 function restartGame(_event) {
     console.log("restart game");
 }
+//not working yet except it did work at some point 
 function newMap() {
     //
     // Make sure canvas size matches CSS size
