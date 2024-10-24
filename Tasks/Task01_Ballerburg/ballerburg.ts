@@ -58,7 +58,7 @@ function newMap(): void {
   canvas.height = canvas.clientHeight;
 
   // Create fixed points for the terrain
-  const createTerrainPoints = (): Point[] => {
+  function createTerrainPoints(): Point[] {
     const points: Point[] = [];
 
     // Start point (left side)
@@ -90,7 +90,8 @@ function newMap(): void {
     });
 
     return points;
-  };
+  }
+
 
   // Draw the terrain
   function drawTerrain(): void {
