@@ -51,4 +51,14 @@ class Farm {
         this.animals.push(new Animal("Porky", "Pig", "Junk", 8, "Oink"));
         this.animals.push(new Animal("Don Hee-Haw", "Donkey", "Grains", 8, "Hee-Haw"));
     }
+
+    installClickListener(): void {
+        const button: HTMLButtonElement = <HTMLButtonElement>document.getElementById("startDay");
+        button?.addEventListener("click", this.onButtonClick);
+    }
+
+    onButtonClick(): void {
+        this.simulateDay();
+    }
+
 }
