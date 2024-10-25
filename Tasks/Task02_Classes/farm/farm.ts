@@ -17,14 +17,16 @@ class Animal {
         this.sound = _sound;
     }
     sing(): string {
-        return this.name + " the " + this.species + " sings: Old MacDonald had a " + this.species + ", E-I-E-I-O! With a " + this.sound + "-" + this.sound + " here and a" + this.sound + "-" + this.sound + "there...";
+        return this.name + " the " + this.species + " sings: Old MacDonald had a " + this.species + ", E-I-E-I-O! With a " + this.sound + "-" + this.sound + " here and a " + this.sound + "-" + this.sound + " there... ";
     }
 
-    eat(farm: Farm): string {
-        if (farm.foodSupplies[this.food] >= this.foodConsumption) {
-            farm.foodSupplies[this.food] -= this.foodConsumption;
-            return this.name + " ate " + this.foodConsumption + " units of " + this.food + ". Remaining: " + farm.foodSupplies[this.food];
+    eat(_farm: Farm): string {
+        if (_farm.foodSupplies[this.food] >= this.foodConsumption) {
+            _farm.foodSupplies[this.food] -= this.foodConsumption;
+            console.log(_farm.foodSupplies, this.foodConsumption);
+            return this.name + " ate " + this.foodConsumption + " units of " + this.food + ". Remaining: " + _farm.foodSupplies[this.food];
         } else {
+
             return "Not enough " + this.food + " for " + this.name + "!";
 
         }
@@ -53,8 +55,9 @@ class Farm {
     }
 
     installClickListener(): void {
-        (document.getElementById("startDay") as HTMLElement).addEventListener("click", this.onButtonClick);
+        (document.getElementById("startDay") as HTMLElement).addEventListener("click", this.onButtonClick.bind(this));
     }
+
 
     onButtonClick(): void {
         this.simulateDay();
@@ -62,7 +65,7 @@ class Farm {
 
     simulateDay(): void {
         const output: HTMLDivElement = <HTMLDivElement>document.getElementById("animalOutput");
-        const foodStatus: HTMLDivElement = <HTMLDivElement>document.getElementById("FoodStatus");
+        const foodStatus: HTMLDivElement = <HTMLDivElement>document.getElementById("foodStatus");
 
         if (output) {
             output.innerHTML = "";
@@ -74,10 +77,24 @@ class Farm {
 
         for (let i: number = 0; i < this.animals.length; i++) {
             const animal: Animal = this.animals[i];
-            this.handleAnimalActions(animal, output, foodstatus);
+            this.handleAnimalActions(animal, output, foodStatus);
         }
     }
 
+    handleAnimalActions(_animal: Animal, _output: HTMLDivElement, _foodStatus: HTMLDivElement): void {
+        if (_output) {
+            _output.innerHTML += "<p>" + _animal.sing() + "</p>";
+        }
 
+        const foodMessage: string = _animal.eat(this);
 
+        if (_foodStatus) {
+            _foodStatus.innerHTML += "<p>" + foodMessage + "</p>";
+        }
+    }
 }
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    new Farm();
+});
