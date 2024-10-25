@@ -26,8 +26,8 @@ class Animal {
             return this.name + " ate " + this.foodConsumption + " units of " + this.food + ". Remaining: " + farm.foodSupplies[this.food];
         } else {
             return "Not enough " + this.food + " for " + this.name + "!";
-        }
 
+        }
 
     }
 
