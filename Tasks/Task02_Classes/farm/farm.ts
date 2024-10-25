@@ -20,9 +20,6 @@ class Animal {
         return this.name + " the " + this.species + " sings: Old MacDonald had a " + this.species + ", E-I-E-I-O! With a " + this.sound + "-" + this.sound + " here and a" + this.sound + "-" + this.sound + "there...";
     }
 
-    eat(_farm: Farm): string {
-
-    }
 
 }
 
