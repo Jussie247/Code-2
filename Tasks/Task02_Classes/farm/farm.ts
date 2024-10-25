@@ -53,12 +53,13 @@ class Farm {
     }
 
     installClickListener(): void {
-        const button: HTMLButtonElement = <HTMLButtonElement>document.getElementById("startDay");
-        button?.addEventListener("click", this.onButtonClick);
+        (document.getElementById("startDay") as HTMLElement).addEventListener("click", this.onButtonClick);
     }
 
     onButtonClick(): void {
         this.simulateDay();
     }
+
+
 
 }
