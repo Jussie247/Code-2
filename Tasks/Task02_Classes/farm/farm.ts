@@ -31,13 +31,24 @@ class Animal {
 
     }
 
+}
+
 class Farm {
     animals: Animal[] = [];
     foodSupplies: { [key: string]: number };
 
     constructor() {
         this.foodSupplies = { "Grass": 100, "Grains": 100, "Meat": 50, "Junk": 30 };
-        this.loadAnimals();
+        this.loadFarm();
         this.installClickListener();
+    }
+
+    loadFarm(): void {
+        this.animals.push(new Animal("Helga", "Cow", "Grass", 10, "Moo"));
+        this.animals.push(new Animal("Chuck", "Chicken", "Grains", 3, "Gack"));
+        this.animals.push(new Animal("Sir Barksalittle the IV", "Dog", "Meat", 5, "Bark"));
+        this.animals.push(new Animal("Sherlock Hooves", "Horse", "Grass", 15, "Neigh"));
+        this.animals.push(new Animal("Porky", "Pig", "Junk", 8, "Oink"));
+        this.animals.push(new Animal("Don Hee-Haw", "Donkey", "Grains", 8, "Hee-Haw"));
     }
 }
