@@ -60,6 +60,24 @@ class Farm {
         this.simulateDay();
     }
 
+    simulateDay(): void {
+        const output: HTMLDivElement = <HTMLDivElement>document.getElementById("animalOutput");
+        const foodStatus: HTMLDivElement = <HTMLDivElement>document.getElementById("FoodStatus");
+
+        if (output) {
+            output.innerHTML = "";
+        }
+
+        if (foodStatus) {
+            foodStatus.innerHTML = "";
+        }
+
+        for (let i: number = 0; i < this.animals.length; i++) {
+            const animal: Animal = this.animals[i];
+            this.handleAnimalActions(animal, output, foodstatus);
+        }
+    }
+
 
 
 }
