@@ -20,8 +20,16 @@ class Animal {
         return this.name + " the " + this.species + " sings: Old MacDonald had a " + this.species + ", E-I-E-I-O! With a " + this.sound + "-" + this.sound + " here and a" + this.sound + "-" + this.sound + "there...";
     }
 
+    eat(farm: Farm): string {
+        if (farm.foodSupplies[this.food] >= this.foodConsumption) {
+            farm.foodSupplies[this.food] -= this.foodConsumption;
+            return this.name + " ate " + this.foodConsumption + " units of " + this.food + ". Remaining: " + farm.foodSupplies[this.food];
+        } else {
+            return "Not enough " + this.food + " for " + this.name + "!";
+        }
 
-}
+
+    }
 
 class Farm {
     animals: Animal[] = [];
