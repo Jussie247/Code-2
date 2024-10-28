@@ -1,5 +1,8 @@
 namespace MacDonald {
-    document.addEventListener("DOMContentLoaded", function () {
+    function initFarm(): void {
         new Farm();
-    });
+    }
+
+    document.addEventListener("DOMContentLoaded", initFarm);
+
 }
