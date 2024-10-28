@@ -11,6 +11,8 @@ namespace T03_Asteroids {
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
         crc2.fillStyle = "black";
         crc2.strokeStyle = "white";
+        crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+
 
         createPaths();
         console.log("Asteroids paths: ", asteroidPaths);
@@ -19,5 +21,12 @@ namespace T03_Asteroids {
         let asteroid: Asteroid = new Asteroid(1);
         console.log(asteroid);
 
+        for (let i: number = 0; i < 100; i++) {
+
+            crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+            asteroid.draw();
+            asteroid.move(0.1);
+
+        }
     }
 }
