@@ -7,9 +7,15 @@ namespace T03_Asteroids {
         type: number;
         size: number;
 
-        constructor(_size: number) {
+        constructor(_size: number, _position?: Vector) {
             console.log("Asteroid constructor");
-            this.position = new Vector(0, 0);
+
+            if (_position)
+                this.position = _position;
+            else
+                this.position = new Vector(0, 0);
+
+
             this.velocity = new Vector(0, 0);
             this.velocity.random(100, 200);
 
@@ -19,7 +25,7 @@ namespace T03_Asteroids {
         }
 
         move(_timeslice: number): void {
-            console.log("Asteroid move");
+            //console.log("Asteroid move");
             let offset: Vector = new Vector(this.velocity.x, this.velocity.y);
             offset.scale(_timeslice);
             this.position.add(offset);
@@ -38,7 +44,7 @@ namespace T03_Asteroids {
         }
 
         draw(): void {
-            console.log("Asteroid draw");
+            //console.log("Asteroid draw");
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
             crc2.scale(this.size, this.size);
@@ -47,6 +53,13 @@ namespace T03_Asteroids {
             crc2.restore();
         }
 
+
+        isHit(_hotspot: Vector): boolean {
+            let hitsize: number = 50 * this.size;
+            let difference: Vector = new Vector(_hotspot.x - this.position.x, _hotspot.y - this.position.y);
+            (Math.abs(difference.x) < hitsize && Math.abs(difference.y) < hitsize);
+            return (Math.abs(difference.x) < hitsize && Math.abs(difference.y) < hitsize);
+        }
 
     }
 }
