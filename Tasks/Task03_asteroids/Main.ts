@@ -44,6 +44,11 @@ namespace T03_Asteroids {
         console.log("update");
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
 
+        for (let asteroid of asteroids) {
+            asteroid.move(1 / 50);
+            asteroid.draw();
+        }
+
         /* ship.draw();
         handleCollisions(); */
     }

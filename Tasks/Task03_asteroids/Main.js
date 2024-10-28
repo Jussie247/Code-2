@@ -33,6 +33,10 @@ var T03_Asteroids;
     function update() {
         console.log("update");
         T03_Asteroids.crc2.fillRect(0, 0, T03_Asteroids.crc2.canvas.width, T03_Asteroids.crc2.canvas.height);
+        for (let asteroid of asteroids) {
+            asteroid.move(1 / 50);
+            asteroid.draw();
+        }
         /* ship.draw();
         handleCollisions(); */
     }
