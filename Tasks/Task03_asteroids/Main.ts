@@ -14,5 +14,10 @@ namespace T03_Asteroids {
 
         createPaths();
         console.log("Asteroids paths: ", asteroidPaths);
+
+
+        let asteroid: Asteroid = new Asteroid(1);
+        console.log(asteroid);
+
     }
 }
