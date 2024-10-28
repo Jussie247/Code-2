@@ -4,8 +4,9 @@ var T03_Asteroids;
     class Asteroid {
         constructor(_size) {
             console.log("Asteroid constructor");
+            this.position = new T03_Asteroids.Vector(0, 0);
         }
-        moveBy(_timeslice) {
+        move(_timeslice) {
             console.log("Asteroid move");
         }
         draw() {

@@ -12,6 +12,8 @@ var T03_Asteroids;
         T03_Asteroids.crc2.strokeStyle = "white";
         T03_Asteroids.createPaths();
         console.log("Asteroids paths: ", T03_Asteroids.asteroidPaths);
+        let asteroid = new T03_Asteroids.Asteroid(1);
+        console.log(asteroid);
     }
 })(T03_Asteroids || (T03_Asteroids = {}));
 //# sourceMappingURL=Main.js.map
