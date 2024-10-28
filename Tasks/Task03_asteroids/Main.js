@@ -2,6 +2,7 @@
 var T03_Asteroids;
 (function (T03_Asteroids) {
     window.addEventListener("load", handleLoad);
+    let asteroids = [];
     function handleLoad(_event) {
         console.log("Asteroids starting");
         let canvas = document.querySelector("canvas");
@@ -13,13 +14,27 @@ var T03_Asteroids;
         T03_Asteroids.crc2.fillRect(0, 0, T03_Asteroids.crc2.canvas.width, T03_Asteroids.crc2.canvas.height);
         T03_Asteroids.createPaths();
         console.log("Asteroids paths: ", T03_Asteroids.asteroidPaths);
-        let asteroid = new T03_Asteroids.Asteroid(1);
-        console.log(asteroid);
-        for (let i = 0; i < 100; i++) {
-            T03_Asteroids.crc2.fillRect(0, 0, T03_Asteroids.crc2.canvas.width, T03_Asteroids.crc2.canvas.height);
-            asteroid.draw();
-            asteroid.move(0.1);
+        createAsteroids(5);
+        /*   createShip();
+  
+          canvas.addEventListener("mousedown", loadLaser);
+          canvas.addEventListener("mouseup", shootLaser);
+          canvas.addEventListener("keypress", handleKeypress);
+          canvas.addEventListener("mousemove", setHeading); */
+        window.setInterval(update, 20);
+    }
+    function createAsteroids(_nAsteriods) {
+        console.log("Create asteroids");
+        for (let i = 0; i < _nAsteriods; i++) {
+            let asteroid = new T03_Asteroids.Asteroid(1.0);
+            asteroids.push(asteroid);
         }
+    }
+    function update() {
+        console.log("update");
+        T03_Asteroids.crc2.fillRect(0, 0, T03_Asteroids.crc2.canvas.width, T03_Asteroids.crc2.canvas.height);
+        /* ship.draw();
+        handleCollisions(); */
     }
 })(T03_Asteroids || (T03_Asteroids = {}));
 //# sourceMappingURL=Main.js.map

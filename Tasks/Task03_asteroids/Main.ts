@@ -3,6 +3,8 @@ namespace T03_Asteroids {
 
     export let crc2: CanvasRenderingContext2D;
 
+    let asteroids: Asteroid[] = [];
+
     function handleLoad(_event: Event): void {
         console.log("Asteroids starting");
         let canvas: HTMLCanvasElement | null = document.querySelector("canvas");
@@ -17,16 +19,32 @@ namespace T03_Asteroids {
         createPaths();
         console.log("Asteroids paths: ", asteroidPaths);
 
+        createAsteroids(5);
+        /*   createShip();
+  
+          canvas.addEventListener("mousedown", loadLaser);
+          canvas.addEventListener("mouseup", shootLaser);
+          canvas.addEventListener("keypress", handleKeypress);
+          canvas.addEventListener("mousemove", setHeading); */
 
-        let asteroid: Asteroid = new Asteroid(1);
-        console.log(asteroid);
+        window.setInterval(update, 20);
 
-        for (let i: number = 0; i < 100; i++) {
+    }
 
-            crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
-            asteroid.draw();
-            asteroid.move(0.1);
 
+    function createAsteroids(_nAsteriods: number): void {
+        console.log("Create asteroids");
+        for (let i: number = 0; i < _nAsteriods; i++) {
+            let asteroid: Asteroid = new Asteroid(1.0);
+            asteroids.push(asteroid);
         }
+    }
+
+    function update(): void {
+        console.log("update");
+        crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+
+        /* ship.draw();
+        handleCollisions(); */
     }
 }
