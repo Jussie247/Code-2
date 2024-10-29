@@ -75,4 +75,26 @@ namespace MacDonald {
 
         }
     }
+
+    export class Pig extends Animal {
+        constructor(_name: string) {
+            super(_name, "Pig", "Junk", 8, "Oink");
+        }
+
+        doSpecialAction(): string {
+            return this.name + " enjoyed a nice mud bath today!";
+
+        }
+    }
+
+    export class Donkey extends Animal {
+        constructor(_name: string) {
+            super(_name, "Donkey", "Grains", 8, "Hee-Haw");
+        }
+
+        doSpecialAction(): string {
+            return this.name + " carried some heavy loads today!";
+
+        }
+    }
 }

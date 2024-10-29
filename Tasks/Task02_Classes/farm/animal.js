@@ -62,5 +62,23 @@ var MacDonald;
         }
     }
     MacDonald.Horse = Horse;
+    class Pig extends Animal {
+        constructor(_name) {
+            super(_name, "Pig", "Junk", 8, "Oink");
+        }
+        doSpecialAction() {
+            return this.name + " enjoyed a nice mud bath today!";
+        }
+    }
+    MacDonald.Pig = Pig;
+    class Donkey extends Animal {
+        constructor(_name) {
+            super(_name, "Donkey", "Grains", 8, "Hee-Haw");
+        }
+        doSpecialAction() {
+            return this.name + " carried some heavy loads today!";
+        }
+    }
+    MacDonald.Donkey = Donkey;
 })(MacDonald || (MacDonald = {}));
 //# sourceMappingURL=Animal.js.map
