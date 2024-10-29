@@ -33,8 +33,8 @@ namespace MacDonald {
             if (output) output.innerHTML = "";
             if (foodStatus) foodStatus.innerHTML = "";
 
-            for (let i = 0; i < this.animals.length; i++) {
-                const animal = this.animals[i];
+            for (let i: number = 0; i < this.animals.length; i++) {
+                const animal: Animal = this.animals[i];
                 this.handleAnimalActions(animal, output, foodStatus);
             }
         }
@@ -44,11 +44,12 @@ namespace MacDonald {
                 _output.innerHTML += "<p>" + _animal.sing() + "</p>";
             }
 
-            const foodMessage = _animal.eat(this);
+            const foodMessage: string = _animal.eat(this);
 
             if (_foodStatus) {
                 _foodStatus.innerHTML += "<p>" + foodMessage + "</p>";
             }
+
         }
     }
 }
