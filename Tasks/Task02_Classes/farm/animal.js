@@ -35,5 +35,14 @@ var MacDonald;
         }
     }
     MacDonald.Cow = Cow;
+    class Chicken extends Animal {
+        constructor(_name) {
+            super(_name, "Chicken", "Grains", 3, "Gack");
+        }
+        doSpecialAction() {
+            return this.name + " laid an egg today!";
+        }
+    }
+    MacDonald.Chicken = Chicken;
 })(MacDonald || (MacDonald = {}));
 //# sourceMappingURL=Animal.js.map

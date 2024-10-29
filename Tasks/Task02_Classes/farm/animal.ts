@@ -42,4 +42,15 @@ namespace MacDonald {
 
         }
     }
+
+    export class Chicken extends Animal {
+        constructor(_name: string) {
+            super(_name, "Chicken", "Grains", 3, "Gack");
+        }
+
+        doSpecialAction(): string {
+            return this.name + " laid an egg today!";
+
+        }
+    }
 }
