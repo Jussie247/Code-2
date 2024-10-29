@@ -31,7 +31,7 @@ var MacDonald;
             super(_name, "Cow", "Grass", 10, "Moo");
         }
         doSpecialAction() {
-            return this.name + " gives fresh milk today!";
+            return "However, " + this.name + " gives fresh milk today!";
         }
     }
     MacDonald.Cow = Cow;
@@ -40,7 +40,7 @@ var MacDonald;
             super(_name, "Chicken", "Grains", 3, "Gack");
         }
         doSpecialAction() {
-            return this.name + " laid an egg today!";
+            return "However, " + this.name + " laid an egg today!";
         }
     }
     MacDonald.Chicken = Chicken;
@@ -49,7 +49,7 @@ var MacDonald;
             super(_name, "Dog", "Meat", 5, "Bark");
         }
         doSpecialAction() {
-            return this.name + " guarded the farm bravely today!";
+            return "However, " + this.name + " guarded the farm bravely today!";
         }
     }
     MacDonald.Dog = Dog;
@@ -58,7 +58,7 @@ var MacDonald;
             super(_name, "Horse", "Grass", 15, "Neigh");
         }
         doSpecialAction() {
-            return this.name + " jelped plow the fields today!";
+            return "However, " + this.name + " helped plow the fields today!";
         }
     }
     MacDonald.Horse = Horse;
@@ -67,7 +67,7 @@ var MacDonald;
             super(_name, "Pig", "Junk", 8, "Oink");
         }
         doSpecialAction() {
-            return this.name + " enjoyed a nice mud bath today!";
+            return "However, " + this.name + " enjoyed a nice mud bath today!";
         }
     }
     MacDonald.Pig = Pig;
@@ -76,7 +76,7 @@ var MacDonald;
             super(_name, "Donkey", "Grains", 8, "Hee-Haw");
         }
         doSpecialAction() {
-            return this.name + " carried some heavy loads today!";
+            return "However, " + this.name + " carried some heavy loads today!";
         }
     }
     MacDonald.Donkey = Donkey;

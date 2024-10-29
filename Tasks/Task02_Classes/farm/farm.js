@@ -9,12 +9,12 @@ var MacDonald;
             this.installClickListener();
         }
         loadFarm() {
-            this.animals.push(new MacDonald.Animal("Helga", "Cow", "Grass", 10, "Moo"));
-            this.animals.push(new MacDonald.Animal("Chuck", "Chicken", "Grains", 3, "Gack"));
-            this.animals.push(new MacDonald.Animal("Sir Barksalittle the IV", "Dog", "Meat", 5, "Bark"));
-            this.animals.push(new MacDonald.Animal("Sherlock Hooves", "Horse", "Grass", 15, "Neigh"));
-            this.animals.push(new MacDonald.Animal("Porky", "Pig", "Junk", 8, "Oink"));
-            this.animals.push(new MacDonald.Animal("Don Hee-Haw", "Donkey", "Grains", 8, "Hee-Haw"));
+            this.animals.push(new MacDonald.Cow("Helga"));
+            this.animals.push(new MacDonald.Chicken("Chuck"));
+            this.animals.push(new MacDonald.Dog("Sir Barksalittle the IV"));
+            this.animals.push(new MacDonald.Horse("Sherlock Hooves"));
+            this.animals.push(new MacDonald.Pig("Porky"));
+            this.animals.push(new MacDonald.Donkey("Don Hee-Haw"));
         }
         installClickListener() {
             document.getElementById("startDay").addEventListener("click", this.onButtonClick.bind(this));

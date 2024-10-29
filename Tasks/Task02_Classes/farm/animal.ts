@@ -38,7 +38,7 @@ namespace MacDonald {
         }
 
         doSpecialAction(): string {
-            return this.name + " gives fresh milk today!";
+            return "However, " + this.name + " gives fresh milk today!";
 
         }
     }
@@ -49,7 +49,7 @@ namespace MacDonald {
         }
 
         doSpecialAction(): string {
-            return this.name + " laid an egg today!";
+            return "However, " + this.name + " laid an egg today!";
 
         }
     }
@@ -60,7 +60,7 @@ namespace MacDonald {
         }
 
         doSpecialAction(): string {
-            return this.name + " guarded the farm bravely today!";
+            return "However, " + this.name + " guarded the farm bravely today!";
 
         }
     }
@@ -71,7 +71,7 @@ namespace MacDonald {
         }
 
         doSpecialAction(): string {
-            return this.name + " jelped plow the fields today!";
+            return "However, " + this.name + " helped plow the fields today!";
 
         }
     }
@@ -82,7 +82,7 @@ namespace MacDonald {
         }
 
         doSpecialAction(): string {
-            return this.name + " enjoyed a nice mud bath today!";
+            return "However, " + this.name + " enjoyed a nice mud bath today!";
 
         }
     }
@@ -93,7 +93,8 @@ namespace MacDonald {
         }
 
         doSpecialAction(): string {
-            return this.name + " carried some heavy loads today!";
+            return "However, " + this.name + " carried some heavy loads today!";
+
 
         }
     }

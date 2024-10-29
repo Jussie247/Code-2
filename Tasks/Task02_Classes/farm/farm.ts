@@ -10,12 +10,12 @@ namespace MacDonald {
         }
 
         loadFarm(): void {
-            this.animals.push(new Animal("Helga", "Cow", "Grass", 10, "Moo"));
-            this.animals.push(new Animal("Chuck", "Chicken", "Grains", 3, "Gack"));
-            this.animals.push(new Animal("Sir Barksalittle the IV", "Dog", "Meat", 5, "Bark"));
-            this.animals.push(new Animal("Sherlock Hooves", "Horse", "Grass", 15, "Neigh"));
-            this.animals.push(new Animal("Porky", "Pig", "Junk", 8, "Oink"));
-            this.animals.push(new Animal("Don Hee-Haw", "Donkey", "Grains", 8, "Hee-Haw"));
+            this.animals.push(new Cow("Helga"));
+            this.animals.push(new Chicken("Chuck"));
+            this.animals.push(new Dog("Sir Barksalittle the IV"));
+            this.animals.push(new Horse("Sherlock Hooves"));
+            this.animals.push(new Pig("Porky"));
+            this.animals.push(new Donkey("Don Hee-Haw"));
         }
 
         installClickListener(): void {
@@ -43,6 +43,7 @@ namespace MacDonald {
             if (_output) {
                 _output.innerHTML += "<p>" + _animal.sing() + "</p>";
                 _output.innerHTML += "<p>" + _animal.doSpecialAction() + "</p>";
+
             }
 
             const foodMessage: string = _animal.eat(this);
