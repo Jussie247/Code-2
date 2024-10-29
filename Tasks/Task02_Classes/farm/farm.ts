@@ -42,6 +42,7 @@ namespace MacDonald {
         handleAnimalActions(_animal: Animal, _output: HTMLDivElement, _foodStatus: HTMLDivElement): void {
             if (_output) {
                 _output.innerHTML += "<p>" + _animal.sing() + "</p>";
+                _output.innerHTML += "<p>" + _animal.doSpecialAction() + "</p>";
             }
 
             const foodMessage: string = _animal.eat(this);

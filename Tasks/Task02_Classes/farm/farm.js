@@ -37,6 +37,7 @@ var MacDonald;
         handleAnimalActions(_animal, _output, _foodStatus) {
             if (_output) {
                 _output.innerHTML += "<p>" + _animal.sing() + "</p>";
+                _output.innerHTML += "<p>" + _animal.doSpecialAction() + "</p>";
             }
             const foodMessage = _animal.eat(this);
             if (_foodStatus) {
