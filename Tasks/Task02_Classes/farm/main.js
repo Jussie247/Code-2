@@ -6,4 +6,4 @@ var MacDonald;
     }
     document.addEventListener("DOMContentLoaded", initFarm);
 })(MacDonald || (MacDonald = {}));
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=Main.js.map

@@ -26,5 +26,20 @@ namespace MacDonald {
                 return "Not enough " + this.food + " for " + this.name + "!";
             }
         }
+
+        doSpecialAction(): string {
+            return this.name + " has no special action today.";
+        }
+    }
+
+    export class Cow extends Animal {
+        constructor(_name: string) {
+            super(_name, "Cow", "Grass", 10, "Moo");
+        }
+
+        doSpecialAction(): string {
+            return this.name + " gives fresh milk today!";
+
+        }
     }
 }

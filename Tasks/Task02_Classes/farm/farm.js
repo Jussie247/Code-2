@@ -46,4 +46,4 @@ var MacDonald;
     }
     MacDonald.Farm = Farm;
 })(MacDonald || (MacDonald = {}));
-//# sourceMappingURL=farm.js.map
+//# sourceMappingURL=Farm.js.map

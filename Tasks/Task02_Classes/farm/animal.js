@@ -21,7 +21,19 @@ var MacDonald;
                 return "Not enough " + this.food + " for " + this.name + "!";
             }
         }
+        doSpecialAction() {
+            return this.name + " has no special action today.";
+        }
     }
     MacDonald.Animal = Animal;
+    class Cow extends Animal {
+        constructor(_name) {
+            super(_name, "Cow", "Grass", 10, "Moo");
+        }
+        doSpecialAction() {
+            return this.name + " gives fresh milk today!";
+        }
+    }
+    MacDonald.Cow = Cow;
 })(MacDonald || (MacDonald = {}));
-//# sourceMappingURL=animal.js.map
+//# sourceMappingURL=Animal.js.map
