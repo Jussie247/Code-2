@@ -1,0 +1,25 @@
+     body {
+         font-family: Arial, sans-serif;
+         line-height: 1.6;
+         margin: 20px;
+     }
+
+     h1 {
+         color: #333;
+     }
+
+     h2,
+     h3 {
+         color: #555;
+     }
+
+     ul {
+         margin-left: 20px;
+     }
+
+     .tip {
+         background-color: #f9f9f9;
+         border-left: 4px solid #ccc;
+         padding: 10px;
+         margin: 20px 0;
+     }
