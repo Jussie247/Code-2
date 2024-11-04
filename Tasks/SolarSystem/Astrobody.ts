@@ -8,7 +8,7 @@ namespace Solarsystem {
         description: string;
         positionrad: number; //in radians
         position: Vector;
-        moons: number;
+
 
         constructor(_orbit: Astrobody[], _size: number, _color: string, _speed: number, _orbitradius: number, _description: string, _position?: Vector) {
             this.orbit = _orbit;
