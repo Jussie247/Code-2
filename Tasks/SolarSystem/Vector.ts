@@ -4,8 +4,8 @@ namespace Solarsystem {
         y: number;
 
         constructor(_x: number, _y: number) {
-            this.set(this.x = _x,
-                this.y = _y);
+            this.x = _x;
+            this.y = _y;
         }
 
         set(_x: number, _y: number): void {

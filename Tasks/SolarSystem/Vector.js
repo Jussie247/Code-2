@@ -3,7 +3,7 @@ var Solarsystem;
 (function (Solarsystem) {
     class Vector {
         constructor(_x, _y) {
-            this.set(this.x = _x, this.y = _y);
+            this.set(_x, _y);
         }
         set(_x, _y) {
             this.x = _x;
