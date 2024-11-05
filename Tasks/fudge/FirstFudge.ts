@@ -30,7 +30,7 @@ namespace FirstFudge {
         node.addComponent(cmpMaterial);
 
 
-        camera.mtxPivot.translateZ(5);
+        camera.mtxPivot.translateZ(3);
         camera.mtxPivot.rotateY(180);
 
 
@@ -56,9 +56,11 @@ namespace FirstFudge {
         const frameTimeInSeconds: number = (frameTimeInMiliSeconds / 1000);
         const degrees: number = 360 * frameTimeInSeconds;
 
+        //node.mtxLocal.translateX(1.0);
         node.mtxLocal.rotateY(degrees);
         //node.mtxLocal.rotateZ(-3);
         node.mtxLocal.rotateX(degrees);
+
         globalViewport.draw();
 
     }
