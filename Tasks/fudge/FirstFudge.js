@@ -32,12 +32,15 @@ var FirstFudge;
         globalViewport = viewport;
         console.log(viewport);
         f.Loop.start();
+        f.Time.game.setScale(0.2);
     }
     function moveCube() {
-        console.log("move Cube");
-        node.mtxLocal.rotateY(5);
-        //node.mtxLocal.rotateZ(5);
-        node.mtxLocal.rotateX(5);
+        const frameTimeInMiliSeconds = f.Loop.timeFrameGame;
+        const frameTimeInSeconds = (frameTimeInMiliSeconds / 1000);
+        const degrees = 360 * frameTimeInSeconds;
+        node.mtxLocal.rotateY(degrees);
+        //node.mtxLocal.rotateZ(-3);
+        node.mtxLocal.rotateX(degrees);
         globalViewport.draw();
     }
 })(FirstFudge || (FirstFudge = {}));

@@ -47,14 +47,18 @@ namespace FirstFudge {
         console.log(viewport);
 
         f.Loop.start();
+        f.Time.game.setScale(0.2);
 
     }
 
     function moveCube(): void {
-        console.log("move Cube");
-        node.mtxLocal.rotateY(5);
-        //node.mtxLocal.rotateZ(5);
-        node.mtxLocal.rotateX(5);
+        const frameTimeInMiliSeconds: number = f.Loop.timeFrameGame;
+        const frameTimeInSeconds: number = (frameTimeInMiliSeconds / 1000);
+        const degrees: number = 360 * frameTimeInSeconds;
+
+        node.mtxLocal.rotateY(degrees);
+        //node.mtxLocal.rotateZ(-3);
+        node.mtxLocal.rotateX(degrees);
         globalViewport.draw();
 
     }
