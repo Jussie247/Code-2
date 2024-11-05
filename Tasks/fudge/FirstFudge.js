@@ -35,7 +35,9 @@ var FirstFudge;
     }
     function moveCube() {
         console.log("move Cube");
-        node.mtxLocal.rotateY(20);
+        node.mtxLocal.rotateY(5);
+        //node.mtxLocal.rotateZ(5);
+        node.mtxLocal.rotateX(5);
         globalViewport.draw();
     }
 })(FirstFudge || (FirstFudge = {}));
