@@ -4,27 +4,39 @@ var FirstFudge;
     var f = FudgeCore;
     window.addEventListener("load", start);
     const node = new f.Node("Node");
+    const groundNode = new f.Node("NodeGround");
     let viewport;
     function start() {
         const canvas = document.querySelector("canvas");
-        //console.log(canvas);
+        //Car
         const mesh = new f.MeshCube("Cube");
-        //console.log(mesh);
-        const camera = new f.ComponentCamera();
-        //console.log(camera);
         const cmpMesh = new f.ComponentMesh(mesh);
+        cmpMesh.mtxPivot.translateY(0.5);
         node.addComponent(cmpMesh);
         const material = new f.Material("Material", f.ShaderLit);
         const cmpMaterial = new f.ComponentMaterial(material);
         cmpMaterial.clrPrimary.set(1, 0.4, 0.7, 1);
         node.addComponent(cmpMaterial);
-        camera.mtxPivot.translateZ(5);
-        camera.mtxPivot.rotateY(180);
         const cpmTransform = new f.ComponentTransform();
         node.addComponent(cpmTransform);
-        //console.log(node);
+        //Ground
+        const groundMesh = new f.MeshQuad("Ground");
+        const cmpGround = new f.ComponentMesh(groundMesh);
+        cmpGround.mtxPivot.rotateX(-90, true);
+        cmpGround.mtxPivot.scaleY(50);
+        cmpGround.mtxPivot.scaleX(50);
+        groundNode.addComponent(cmpGround);
+        const groundMaterial = new f.Material("Ground Material", f.ShaderLitTextured);
+        const cmpGroundMaterial = new f.ComponentMaterial(groundMaterial);
+        groundNode.addComponent(cmpGroundMaterial);
+        groundNode.addChild(node);
+        const camera = new f.ComponentCamera();
+        camera.mtxPivot.translateZ(15);
+        camera.mtxPivot.translateY(15);
+        /*   camera.mtxPivot.rotateY(180);
+          camera.mtxPivot.rotateX(45); */
         viewport = new f.Viewport();
-        viewport.initialize("viewport", node, camera, canvas);
+        viewport.initialize("viewport", groundNode, camera, canvas);
         //console.log(viewport);
         f.Loop.addEventListener("loopFrame" /* f.EVENT.LOOP_FRAME */, update);
         f.Loop.start();
@@ -34,9 +46,6 @@ var FirstFudge;
         const rSpeed = 360 / 3; //degrees per second
         const frameTimeInMiliSeconds = f.Loop.timeFrameGame;
         const frameTimeInSeconds = (frameTimeInMiliSeconds / 1000);
-        /*  const degrees: number = 360 * frameTimeInSeconds;
-         node.mtxLocal.rotateY(degrees);
-         node.mtxLocal.rotateX(degrees); */
         if (f.Keyboard.isPressedOne([f.KEYBOARD_CODE.W]))
             node.mtxLocal.translateZ(tSpeed * frameTimeInSeconds);
         if (f.Keyboard.isPressedOne([f.KEYBOARD_CODE.S]))
@@ -45,6 +54,7 @@ var FirstFudge;
             node.mtxLocal.rotateY(rSpeed * frameTimeInSeconds);
         if (f.Keyboard.isPressedOne([f.KEYBOARD_CODE.D]))
             node.mtxLocal.rotateY(-rSpeed * frameTimeInSeconds);
+        viewport.camera.mtxPivot.lookAt(node.mtxWorld.translation);
         viewport.draw();
     }
 })(FirstFudge || (FirstFudge = {}));
