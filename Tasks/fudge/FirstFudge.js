@@ -30,13 +30,21 @@ var FirstFudge;
         f.Loop.start();
     }
     function update() {
+        const tSpeed = 1 / 1; //units per second
+        const rSpeed = 360 / 1; //degrees per second
         const frameTimeInMiliSeconds = f.Loop.timeFrameGame;
         const frameTimeInSeconds = (frameTimeInMiliSeconds / 1000);
         /*  const degrees: number = 360 * frameTimeInSeconds;
-         
- 
          node.mtxLocal.rotateY(degrees);
          node.mtxLocal.rotateX(degrees); */
+        if (f.Keyboard.isPressedOne([f.KEYBOARD_CODE.W]))
+            node.mtxLocal.translateZ(tSpeed * frameTimeInSeconds);
+        if (f.Keyboard.isPressedOne([f.KEYBOARD_CODE.S]))
+            node.mtxLocal.translateZ(-tSpeed * frameTimeInSeconds);
+        if (f.Keyboard.isPressedOne([f.KEYBOARD_CODE.A]))
+            node.mtxLocal.rotateY(rSpeed * frameTimeInSeconds);
+        if (f.Keyboard.isPressedOne([f.KEYBOARD_CODE.D]))
+            node.mtxLocal.rotateY(-rSpeed * frameTimeInSeconds);
         viewport.draw();
     }
 })(FirstFudge || (FirstFudge = {}));
