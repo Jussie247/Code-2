@@ -12,6 +12,7 @@ var FirstFudge;
         const mesh = new f.MeshCube("Cube");
         const cmpMesh = new f.ComponentMesh(mesh);
         cmpMesh.mtxPivot.translateY(0.5);
+        cmpMesh.mtxPivot.scaleZ(4);
         node.addComponent(cmpMesh);
         const material = new f.Material("Material", f.ShaderLit);
         const cmpMaterial = new f.ComponentMaterial(material);
@@ -54,7 +55,7 @@ var FirstFudge;
             node.mtxLocal.rotateY(rSpeed * frameTimeInSeconds);
         if (f.Keyboard.isPressedOne([f.KEYBOARD_CODE.D]))
             node.mtxLocal.rotateY(-rSpeed * frameTimeInSeconds);
-        viewport.camera.mtxPivot.lookAt(node.mtxWorld.translation);
+        viewport.camera.mtxPivot.lookAt(node.mtxWorld.translation, f.Vector3.Y());
         viewport.draw();
     }
 })(FirstFudge || (FirstFudge = {}));

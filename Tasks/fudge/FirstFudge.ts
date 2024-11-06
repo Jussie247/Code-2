@@ -18,6 +18,7 @@ namespace FirstFudge {
 
         const cmpMesh: f.ComponentMesh = new f.ComponentMesh(mesh);
         cmpMesh.mtxPivot.translateY(0.5);
+        cmpMesh.mtxPivot.scaleZ(4);
         node.addComponent(cmpMesh);
 
         const material: f.Material = new f.Material("Material", f.ShaderLit);
@@ -27,6 +28,7 @@ namespace FirstFudge {
 
         const cpmTransform: f.ComponentTransform = new f.ComponentTransform();
         node.addComponent(cpmTransform);
+
 
         //Ground
         const groundMesh: f.Mesh = new f.MeshQuad("Ground");
@@ -77,7 +79,7 @@ namespace FirstFudge {
         if (f.Keyboard.isPressedOne([f.KEYBOARD_CODE.D]))
             node.mtxLocal.rotateY(-rSpeed * frameTimeInSeconds);
 
-        viewport.camera.mtxPivot.lookAt(node.mtxWorld.translation);
+        viewport.camera.mtxPivot.lookAt(node.mtxWorld.translation, f.Vector3.Y());
 
         viewport.draw();
     }
