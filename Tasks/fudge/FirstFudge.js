@@ -30,8 +30,8 @@ var FirstFudge;
         f.Loop.start();
     }
     function update() {
-        const tSpeed = 1 / 1; //units per second
-        const rSpeed = 360 / 1; //degrees per second
+        const tSpeed = 3 / 1; //units per second
+        const rSpeed = 360 / 3; //degrees per second
         const frameTimeInMiliSeconds = f.Loop.timeFrameGame;
         const frameTimeInSeconds = (frameTimeInMiliSeconds / 1000);
         /*  const degrees: number = 360 * frameTimeInSeconds;
