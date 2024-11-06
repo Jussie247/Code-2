@@ -7,6 +7,8 @@ var FirstFudge;
     const node = new f.Node("Node");
     let globalViewport;
     f.Loop.addEventListener("loopFrame" /* f.EVENT.LOOP_FRAME */, moveCube);
+    let direction = false;
+    let offset = 0;
     function start() {
         const canvas = document.querySelector("canvas");
         console.log(canvas);
@@ -20,7 +22,7 @@ var FirstFudge;
         const cmpMaterial = new f.ComponentMaterial(material);
         cmpMaterial.clrPrimary.set(1, 0.4, 0.7, 1);
         node.addComponent(cmpMaterial);
-        camera.mtxPivot.translateZ(3);
+        camera.mtxPivot.translateZ(5);
         camera.mtxPivot.rotateY(180);
         const cpmTransform = new f.ComponentTransform();
         node.addComponent(cpmTransform);
@@ -38,10 +40,23 @@ var FirstFudge;
         const frameTimeInMiliSeconds = f.Loop.timeFrameGame;
         const frameTimeInSeconds = (frameTimeInMiliSeconds / 1000);
         const degrees = 360 * frameTimeInSeconds;
-        //node.mtxLocal.translateX(1.0);
+        const pos = 2 * frameTimeInSeconds;
         node.mtxLocal.rotateY(degrees);
-        //node.mtxLocal.rotateZ(-3);
         node.mtxLocal.rotateX(degrees);
+        if (direction == false) {
+            node.mtxLocal.translateX(-pos, false);
+            offset -= pos;
+            if (offset <= -2) {
+                direction = true;
+            }
+        }
+        else {
+            node.mtxLocal.translateX(+pos, false);
+            offset += pos;
+            if (offset >= 2) {
+                direction = false;
+            }
+        }
         globalViewport.draw();
     }
 })(FirstFudge || (FirstFudge = {}));
