@@ -1,27 +1,25 @@
 namespace FirstFudge {
-
     import f = FudgeCore;
-    console.log(f);
 
     window.addEventListener("load", start);
 
 
     const node: f.Node = new f.Node("Node");
-    let globalViewport: f.Viewport;
-    f.Loop.addEventListener(f.EVENT.LOOP_FRAME, moveCube);
+    let viewport: f.Viewport;
+
 
     let direction: boolean = false;
     let offset: number = 0;
 
     function start(): void {
         const canvas: HTMLCanvasElement = document.querySelector("canvas")!;
-        console.log(canvas);
+        //console.log(canvas);
 
         const mesh: f.Mesh = new f.MeshCube("Cube");
-        console.log(mesh);
+        //console.log(mesh);
 
         const camera: f.ComponentCamera = new f.ComponentCamera();
-        console.log(camera);
+        //console.log(camera);
 
         const cmpMesh: f.ComponentMesh = new f.ComponentMesh(mesh);
         node.addComponent(cmpMesh);
@@ -40,20 +38,20 @@ namespace FirstFudge {
         node.addComponent(cpmTransform);
         node.mtxLocal.translateX(0);
 
-        console.log(node);
+        //console.log(node);
 
-        const viewport: f.Viewport = new f.Viewport();
+        viewport = new f.Viewport();
         viewport.initialize("viewport", node, camera, canvas);
-        viewport.draw();
-        globalViewport = viewport;
-        console.log(viewport);
 
+
+        //console.log(viewport);
+        f.Loop.addEventListener(f.EVENT.LOOP_FRAME, update);
         f.Loop.start();
         f.Time.game.setScale(0.2);
 
     }
 
-    function moveCube(): void {
+    function update(): void {
         const frameTimeInMiliSeconds: number = f.Loop.timeFrameGame;
         const frameTimeInSeconds: number = (frameTimeInMiliSeconds / 1000);
         const degrees: number = 360 * frameTimeInSeconds;
@@ -75,6 +73,6 @@ namespace FirstFudge {
                 direction = false;
             }
         }
-        globalViewport.draw();
+        viewport.draw();
     }
 }
