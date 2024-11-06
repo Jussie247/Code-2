@@ -8,9 +8,6 @@ namespace FirstFudge {
     let viewport: f.Viewport;
 
 
-    let direction: boolean = false;
-    let offset: number = 0;
-
     function start(): void {
         const canvas: HTMLCanvasElement = document.querySelector("canvas")!;
         //console.log(canvas);
@@ -36,7 +33,7 @@ namespace FirstFudge {
 
         const cpmTransform: f.ComponentTransform = new f.ComponentTransform();
         node.addComponent(cpmTransform);
-        node.mtxLocal.translateX(0);
+
 
         //console.log(node);
 
@@ -47,32 +44,20 @@ namespace FirstFudge {
         //console.log(viewport);
         f.Loop.addEventListener(f.EVENT.LOOP_FRAME, update);
         f.Loop.start();
-        f.Time.game.setScale(0.2);
+
 
     }
 
     function update(): void {
         const frameTimeInMiliSeconds: number = f.Loop.timeFrameGame;
         const frameTimeInSeconds: number = (frameTimeInMiliSeconds / 1000);
-        const degrees: number = 360 * frameTimeInSeconds;
-        const pos: number = 2 * frameTimeInSeconds;
+        /*  const degrees: number = 360 * frameTimeInSeconds;
+         
+ 
+         node.mtxLocal.rotateY(degrees);
+         node.mtxLocal.rotateX(degrees); */
 
-        node.mtxLocal.rotateY(degrees);
-        node.mtxLocal.rotateX(degrees);
 
-        if (direction == false) {
-            node.mtxLocal.translateX(-pos, false);
-            offset -= pos;
-            if (offset <= -2) {
-                direction = true;
-            }
-        } else {
-            node.mtxLocal.translateX(+pos, false);
-            offset += pos;
-            if (offset >= 2) {
-                direction = false;
-            }
-        }
         viewport.draw();
     }
 }

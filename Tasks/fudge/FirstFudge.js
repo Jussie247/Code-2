@@ -5,8 +5,6 @@ var FirstFudge;
     window.addEventListener("load", start);
     const node = new f.Node("Node");
     let viewport;
-    let direction = false;
-    let offset = 0;
     function start() {
         const canvas = document.querySelector("canvas");
         //console.log(canvas);
@@ -24,36 +22,21 @@ var FirstFudge;
         camera.mtxPivot.rotateY(180);
         const cpmTransform = new f.ComponentTransform();
         node.addComponent(cpmTransform);
-        node.mtxLocal.translateX(0);
         //console.log(node);
         viewport = new f.Viewport();
         viewport.initialize("viewport", node, camera, canvas);
         //console.log(viewport);
         f.Loop.addEventListener("loopFrame" /* f.EVENT.LOOP_FRAME */, update);
         f.Loop.start();
-        f.Time.game.setScale(0.2);
     }
     function update() {
         const frameTimeInMiliSeconds = f.Loop.timeFrameGame;
         const frameTimeInSeconds = (frameTimeInMiliSeconds / 1000);
-        const degrees = 360 * frameTimeInSeconds;
-        const pos = 2 * frameTimeInSeconds;
-        node.mtxLocal.rotateY(degrees);
-        node.mtxLocal.rotateX(degrees);
-        if (direction == false) {
-            node.mtxLocal.translateX(-pos, false);
-            offset -= pos;
-            if (offset <= -2) {
-                direction = true;
-            }
-        }
-        else {
-            node.mtxLocal.translateX(+pos, false);
-            offset += pos;
-            if (offset >= 2) {
-                direction = false;
-            }
-        }
+        /*  const degrees: number = 360 * frameTimeInSeconds;
+         
+ 
+         node.mtxLocal.rotateY(degrees);
+         node.mtxLocal.rotateX(degrees); */
         viewport.draw();
     }
 })(FirstFudge || (FirstFudge = {}));
