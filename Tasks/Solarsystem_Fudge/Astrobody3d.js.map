@@ -1,0 +1,1 @@
+{"version":3,"file":"Astrobody3d.js","sourceRoot":"","sources":["Astrobody3d.ts"],"names":[],"mappings":";AAAA,IAAU,gBAAgB,CAuBzB;AAvBD,WAAU,gBAAgB;IAEtB,MAAa,MAAM;QAef,YAAmB,KAAa,EAAE,KAAa;YAC3C,IAAI,CAAC,IAAI,GAAG,KAAK,CAAC;YAClB,IAAI,CAAC,IAAI,GAAG,KAAK,CAAC;QAEtB,CAAC;KACJ;IApBY,uBAAM,SAoBlB,CAAA;AACL,CAAC,EAvBS,gBAAgB,KAAhB,gBAAgB,QAuBzB"}
