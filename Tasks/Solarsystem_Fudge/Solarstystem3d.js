@@ -6,6 +6,8 @@ var SolarsystemFudge;
     const sun = new SolarsystemFudge.f.Node("Sun");
     let viewport;
     function start() {
+        const body = new SolarsystemFudge.Body3d("Sun", 1, "yellow");
+        console.log(body);
         const canvas = document.querySelector("canvas");
         const camera = new SolarsystemFudge.f.ComponentCamera();
         camera.mtxPivot.translateZ(15);

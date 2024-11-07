@@ -8,21 +8,22 @@ namespace SolarsystemFudge {
         //public name: string;
 
         private size: number;
+        private color: string;
         private distance: number = 0;
         private vOrbit: number = 0;
         private vRotation: number = 0;
-        private cmpMesh: f.ComponentMesh;
-        private cmpMaterial: f.ComponentMaterial;
 
 
 
-        public constructor(_name: string, _size: number) {
+
+        public constructor(_name: string, _size: number, _color: string) {
             super(_name)
             this.name = _name;
             this.size = _size;
 
-            this.cmpMesh = new f.ComponentMesh(Body3d.mesh);
-            this.cmpMaterial = new f.ComponentMaterial(Body3d.material);
+
+            this.addComponent(new f.ComponentMesh(Body3d.mesh));
+            this.addComponent(new f.ComponentMaterial(Body3d.material));
             this.addComponent(new f.ComponentTransform());
 
         }

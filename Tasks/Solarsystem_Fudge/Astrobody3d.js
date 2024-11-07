@@ -2,15 +2,15 @@
 var SolarsystemFudge;
 (function (SolarsystemFudge) {
     class Body3d extends SolarsystemFudge.f.Node {
-        constructor(_name, _size) {
+        constructor(_name, _size, _color) {
             super(_name);
             this.distance = 0;
             this.vOrbit = 0;
             this.vRotation = 0;
             this.name = _name;
             this.size = _size;
-            this.cmpMesh = new SolarsystemFudge.f.ComponentMesh(Body3d.mesh);
-            this.cmpMaterial = new SolarsystemFudge.f.ComponentMaterial(Body3d.material);
+            this.addComponent(new SolarsystemFudge.f.ComponentMesh(Body3d.mesh));
+            this.addComponent(new SolarsystemFudge.f.ComponentMaterial(Body3d.material));
             this.addComponent(new SolarsystemFudge.f.ComponentTransform());
         }
         setTransform(_vOrbit, _vRotation, _distance) {

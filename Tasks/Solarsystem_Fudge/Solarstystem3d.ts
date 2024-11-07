@@ -9,6 +9,9 @@ namespace SolarsystemFudge {
 
 
     function start(): void {
+        const body: Body3d = new Body3d("Sun", 1, "yellow");
+        console.log(body);
+
         const canvas: HTMLCanvasElement = document.querySelector("canvas")!;
         const camera: f.ComponentCamera = new f.ComponentCamera();
 
