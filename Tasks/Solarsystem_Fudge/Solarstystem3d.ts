@@ -9,16 +9,18 @@ namespace SolarsystemFudge {
 
 
     function start(): void {
-        const body: Body3d = new Body3d("Sun", 1, "yellow");
-        console.log(body);
+        const earth: Body3d = new Body3d("Earth", 1, "blue");
+        sun.addChild(earth);
+        console.log(earth);
 
         const canvas: HTMLCanvasElement = document.querySelector("canvas")!;
         const camera: f.ComponentCamera = new f.ComponentCamera();
 
-        camera.mtxPivot.translateZ(15);
-        camera.mtxPivot.translateY(15);
-        /*   camera.mtxPivot.rotateY(180);
-          camera.mtxPivot.rotateX(45); */
+        // camera.mtxPivot.translateZ(15);
+        // camera.mtxPivot.translateY(15);
+
+        camera.mtxPivot.translateZ(-10);
+
 
         viewport = new f.Viewport();
         viewport.initialize("viewport", sun, camera, canvas);

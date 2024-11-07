@@ -8,7 +8,6 @@ namespace SolarsystemFudge {
         //public name: string;
 
         private size: number;
-        private color: string;
         private distance: number = 0;
         private vOrbit: number = 0;
         private vRotation: number = 0;
@@ -21,9 +20,11 @@ namespace SolarsystemFudge {
             this.name = _name;
             this.size = _size;
 
+            const tempMat: f.ComponentMaterial = new f.ComponentMaterial(Body3d.material);
+            tempMat.clrPrimary.setCSS(_color);
 
             this.addComponent(new f.ComponentMesh(Body3d.mesh));
-            this.addComponent(new f.ComponentMaterial(Body3d.material));
+            this.addComponent(tempMat);
             this.addComponent(new f.ComponentTransform());
 
         }

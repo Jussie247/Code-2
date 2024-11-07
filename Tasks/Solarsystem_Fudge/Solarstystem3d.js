@@ -6,14 +6,14 @@ var SolarsystemFudge;
     const sun = new SolarsystemFudge.f.Node("Sun");
     let viewport;
     function start() {
-        const body = new SolarsystemFudge.Body3d("Sun", 1, "yellow");
-        console.log(body);
+        const earth = new SolarsystemFudge.Body3d("Earth", 1, "blue");
+        sun.addChild(earth);
+        console.log(earth);
         const canvas = document.querySelector("canvas");
         const camera = new SolarsystemFudge.f.ComponentCamera();
-        camera.mtxPivot.translateZ(15);
-        camera.mtxPivot.translateY(15);
-        /*   camera.mtxPivot.rotateY(180);
-          camera.mtxPivot.rotateX(45); */
+        // camera.mtxPivot.translateZ(15);
+        // camera.mtxPivot.translateY(15);
+        camera.mtxPivot.translateZ(-10);
         viewport = new SolarsystemFudge.f.Viewport();
         viewport.initialize("viewport", sun, camera, canvas);
         //console.log(viewport);

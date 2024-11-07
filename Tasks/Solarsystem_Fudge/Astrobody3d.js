@@ -9,8 +9,10 @@ var SolarsystemFudge;
             this.vRotation = 0;
             this.name = _name;
             this.size = _size;
+            const tempMat = new SolarsystemFudge.f.ComponentMaterial(Body3d.material);
+            tempMat.clrPrimary.setCSS(_color);
             this.addComponent(new SolarsystemFudge.f.ComponentMesh(Body3d.mesh));
-            this.addComponent(new SolarsystemFudge.f.ComponentMaterial(Body3d.material));
+            this.addComponent(tempMat);
             this.addComponent(new SolarsystemFudge.f.ComponentTransform());
         }
         setTransform(_vOrbit, _vRotation, _distance) {
