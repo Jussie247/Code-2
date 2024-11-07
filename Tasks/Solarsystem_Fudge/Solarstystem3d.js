@@ -1,18 +1,23 @@
 "use strict";
 var SolarsystemFudge;
 (function (SolarsystemFudge) {
-    SolarsystemFudge.f = FudgeCore;
     window.addEventListener("load", start);
-    const sun = new SolarsystemFudge.f.Node("Sun");
+    let sun;
     let viewport;
     function start() {
-        const earth = new SolarsystemFudge.Body3d("Earth", 1, "blue");
-        sun.addChild(earth);
+        sun = new SolarsystemFudge.Body3d("Sun", 1, 0, "yellow");
+        const earth = new SolarsystemFudge.Body3d("Earth", 1, 2, "blue");
+        const rotationNode = new SolarsystemFudge.f.Node("EarthRotation");
+        const rotationTransform = new SolarsystemFudge.f.ComponentTransform();
+        rotationNode.addComponent(rotationTransform);
+        sun.addChild(rotationNode);
+        rotationNode.addChild(earth);
         console.log(earth);
         const canvas = document.querySelector("canvas");
         const camera = new SolarsystemFudge.f.ComponentCamera();
         // camera.mtxPivot.translateZ(15);
         // camera.mtxPivot.translateY(15);
+        camera.mtxPivot.rotateY(180);
         camera.mtxPivot.translateZ(-10);
         viewport = new SolarsystemFudge.f.Viewport();
         viewport.initialize("viewport", sun, camera, canvas);

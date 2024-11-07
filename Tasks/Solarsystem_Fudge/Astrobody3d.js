@@ -1,8 +1,9 @@
 "use strict";
 var SolarsystemFudge;
 (function (SolarsystemFudge) {
+    SolarsystemFudge.f = FudgeCore;
     class Body3d extends SolarsystemFudge.f.Node {
-        constructor(_name, _size, _color) {
+        constructor(_name, _size, _distance, _color) {
             super(_name);
             this.distance = 0;
             this.vOrbit = 0;
@@ -14,6 +15,7 @@ var SolarsystemFudge;
             this.addComponent(new SolarsystemFudge.f.ComponentMesh(Body3d.mesh));
             this.addComponent(tempMat);
             this.addComponent(new SolarsystemFudge.f.ComponentTransform());
+            this.mtxLocal.translateX(_distance);
         }
         setTransform(_vOrbit, _vRotation, _distance) {
             this.vOrbit = _vOrbit / 1000 * (Math.PI / 180);

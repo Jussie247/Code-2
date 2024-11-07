@@ -1,16 +1,23 @@
 namespace SolarsystemFudge {
-    export import f = FudgeCore;
+
 
     window.addEventListener("load", start);
 
 
-    const sun: f.Node = new f.Node("Sun");
+    let sun: Body3d;
     let viewport: f.Viewport;
 
 
     function start(): void {
-        const earth: Body3d = new Body3d("Earth", 1, "blue");
-        sun.addChild(earth);
+        sun = new Body3d("Sun", 1, 0, "yellow");
+        const earth: Body3d = new Body3d("Earth", 1, 2, "blue");
+
+        const rotationNode: f.Node = new f.Node("EarthRotation");
+        const rotationTransform: f.ComponentTransform = new f.ComponentTransform();
+        rotationNode.addComponent(rotationTransform);
+
+        sun.addChild(rotationNode);
+        rotationNode.addChild(earth);
         console.log(earth);
 
         const canvas: HTMLCanvasElement = document.querySelector("canvas")!;
@@ -19,8 +26,8 @@ namespace SolarsystemFudge {
         // camera.mtxPivot.translateZ(15);
         // camera.mtxPivot.translateY(15);
 
+        camera.mtxPivot.rotateY(180);
         camera.mtxPivot.translateZ(-10);
-
 
         viewport = new f.Viewport();
         viewport.initialize("viewport", sun, camera, canvas);

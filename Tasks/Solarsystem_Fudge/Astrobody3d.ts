@@ -1,4 +1,5 @@
 namespace SolarsystemFudge {
+    export import f = FudgeCore;
 
     export class Body3d extends f.Node {
         private static mesh: f.Mesh = new f.MeshSphere("Body");
@@ -15,7 +16,7 @@ namespace SolarsystemFudge {
 
 
 
-        public constructor(_name: string, _size: number, _color: string) {
+        public constructor(_name: string, _size: number, _distance: number, _color: string) {
             super(_name)
             this.name = _name;
             this.size = _size;
@@ -27,11 +28,17 @@ namespace SolarsystemFudge {
             this.addComponent(tempMat);
             this.addComponent(new f.ComponentTransform());
 
+            this.mtxLocal.translateX(_distance);
+
         }
         public setTransform(_vOrbit: number, _vRotation: number, _distance: number): void {
             this.vOrbit = _vOrbit / 1000 * (Math.PI / 180);
             this.vRotation = _vRotation / 1000 * (Math.PI / 180);
             this.distance = _distance;
+
+
         }
+
+
     }
 }
