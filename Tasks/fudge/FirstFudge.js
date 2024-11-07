@@ -39,7 +39,7 @@ var FirstFudge;
         const frameTimeInSeconds = (frameTimeInMiliSeconds / 1000);
         const degrees = 360 * frameTimeInSeconds;
         //node.mtxLocal.translateX(1.0);
-        node.mtxLocal.rotateY(degrees);
+        node.mtxLocal.rotateY(degrees * 10);
         //node.mtxLocal.rotateZ(-3);
         node.mtxLocal.rotateX(degrees);
         globalViewport.draw();
